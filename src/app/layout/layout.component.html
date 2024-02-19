@@ -1,0 +1,37 @@
+<div class="layout-container">
+  <!-- Sidebar -->
+  <div class="sidenav-container" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
+    <div class="sidenav-content" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
+      <div *ngFor="let item of navItems" class="nav-item">
+        <a [routerLink]="item?.link" (click)="togglesub(item)">
+          <img class="h-[24px] w-[24px]" [src]="item?.icon" alt="">
+          <span>{{item.title}}</span>
+        </a>
+        <div *ngIf="item?.children" class="sub-menu" [ngClass]="{'open': item.expanded}">
+          <a *ngFor="let child of item.children">
+            <span>{{child.title}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sidebar End  -->
+
+  <!-- Main Content -->
+  <div class="grow">
+    <!-- Header -->
+    <header>
+      <button (click)="toggleNav()">
+        <img class="h-[24px] w-[24px]" src="../../assets/icons/menu.svg" alt="">
+      </button>
+    </header>
+
+    <!-- Content -->
+    <div>
+      <router-outlet></router-outlet>
+      <np-datepicker (dateChange)="showDate($event)" dateFormat="yyyy-mm-dd" language="en" [calendarView]="'AD'"></np-datepicker>
+      {{date}}
+    </div>
+  </div>
+  <!-- Main Content End  -->
+</div>
