@@ -27,13 +27,8 @@
     </header>
 
     <!-- Content -->
-    <div>
+    <div class="p-4">
       <router-outlet></router-outlet>
-      <np-datepicker [hasMultipleCalendarView]="false" (dateChange)="showDate($event)" dateFormat="yyyy/mm/dd" language="en" [calendarView]="calendar"></np-datepicker>
-      {{date}}
-
-      <button (click)="calendar='AD'">Swich To AD</button>
-      <button (click)="calendar='BS'">Swich To BS</button>
     </div>
   </div>
   <!-- Main Content End  -->
