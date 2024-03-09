@@ -2,6 +2,13 @@
   <!-- Sidebar -->
   <div class="sidenav-container" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
     <div class="sidenav-content" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
+      <!-- logo -->
+      <div class="logo-container">
+        <img src="../../assets/icons/logo.png">
+        <span>electron</span>
+      </div>
+      <!-- logo end  -->
+      <!-- nav items  -->
       <div *ngFor="let item of navItems" class="nav-item">
         <a [routerLink]="item?.link" (click)="togglesub(item)">
           <img class="h-[24px] w-[24px]" [src]="item?.icon" alt="">
@@ -13,6 +20,7 @@
           </a>
         </div>
       </div>
+      <!-- nav items end  -->
     </div>
   </div>
   <!-- Sidebar End  -->
@@ -22,9 +30,15 @@
     <!-- Header -->
     <header>
       <button (click)="toggleNav()">
-        <img class="h-[24px] w-[24px]" src="../../assets/icons/menu.svg" alt="">
+        <img class="h-[24px] w-[24px]" src="../../assets/icons/menu.svg">
       </button>
+      <div class="header-items">
+        <img src="../../assets/icons/moon.svg">
+        <img src="../../assets/icons/notification.svg">
+        <img src="../../assets/icons/profile.svg">
+      </div>
     </header>
+    <!-- Header end  -->
 
     <!-- Content -->
     <div class="p-4">
