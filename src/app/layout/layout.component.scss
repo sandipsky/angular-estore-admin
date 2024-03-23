@@ -35,6 +35,12 @@ header
         gap: 12px;
 
         img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .profile
+        {
             width: 24px;
             height: 24px;
         }
@@ -86,7 +92,7 @@ header
 
 
 
-                &:hover {
+                &:hover, &.active {
                     background-color: var(--nav-hover);
                 }
             }

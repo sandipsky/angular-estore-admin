@@ -10,15 +10,11 @@
       <!-- logo end  -->
       <!-- nav items  -->
       <div *ngFor="let item of navItems" class="nav-item">
-        <a [routerLink]="item?.link" (click)="togglesub(item)">
+        <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}" [routerLink]="item?.link">
           <img class="h-[24px] w-[24px]" [src]="item?.icon" alt="">
           <span>{{item.title}}</span>
         </a>
-        <div *ngIf="item?.children" class="sub-menu" [ngClass]="{'open': item.expanded}">
-          <a *ngFor="let child of item.children">
-            <span>{{child.title}}</span>
-          </a>
-        </div>
       </div>
       <!-- nav items end  -->
     </div>
@@ -35,7 +31,7 @@
       <div class="header-items">
         <img src="../../assets/icons/moon.svg">
         <img src="../../assets/icons/notification.svg">
-        <img src="../../assets/icons/profile.svg">
+        <img class="profile" src="../../assets/icons/profile.svg">
       </div>
     </header>
     <!-- Header end  -->

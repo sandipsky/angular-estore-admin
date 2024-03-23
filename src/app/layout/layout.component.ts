@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavData } from './nav-data';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
@@ -25,15 +25,5 @@ export class LayoutComponent {
       items.expanded = false
       return items;
     });
-  }
-
-  togglesub(item:any) {
-    item.expanded = !item.expanded;
-    this.isOpened = true;
-  }
-
-  showDate(e:any)
-  {
-    this.date = e;
   }
 }
