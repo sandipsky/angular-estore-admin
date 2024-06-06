@@ -8,16 +8,13 @@
     padding: 6px;
     margin-bottom: 12px;
 
-    img {
-        width: 28px !important;
-        height: 34px;
-    }
 
     span {
-        margin-left: 14px;
+        margin-left: 44px;
         font-size: 24px;
         color: white;
         font-weight: 900;
+        text-wrap: nowrap;
     }
 }
 
@@ -69,7 +66,7 @@ header
         .nav-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 8px;
 
             a {
                 display: flex;

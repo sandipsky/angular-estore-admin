@@ -1,12 +1,12 @@
 export const NavData = [
   {
-    title: "Dashboard",
+    title: "DASHBOARD",
     link: "/",
     expanded: false,
     icon: "../../assets/icons/home.svg",
   },
   {
-    title: "Orders",
+    title: "ORDERS",
     link: "/orders",
     icon: "../../assets/icons/purchase.svg",
   },

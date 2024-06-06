@@ -4,8 +4,7 @@
     <div class="sidenav-content" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
       <!-- logo -->
       <div class="logo-container">
-        <img src="../../assets/icons/logo.png">
-        <span>electron</span>
+        <span>E-Admin</span>
       </div>
       <!-- logo end  -->
       <!-- nav items  -->
@@ -13,7 +12,7 @@
         <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}" [routerLink]="item?.link">
           <img class="h-[24px] w-[24px]" [src]="item?.icon" alt="">
-          <span>{{item.title}}</span>
+          <span>{{item.title | uppercase}}</span>
         </a>
       </div>
       <!-- nav items end  -->
@@ -24,14 +23,13 @@
   <!-- Main Content -->
   <div class="grow">
     <!-- Header -->
-    <header>
+    <header class="shadow-md">
       <button (click)="toggleNav()">
-        <img class="h-[24px] w-[24px]" src="../../assets/icons/menu.svg">
+        <img class="h-[18px] w-[18px]" src="../../assets/icons/menu.svg">
       </button>
-      <div class="header-items">
-        <img src="../../assets/icons/moon.svg">
-        <img src="../../assets/icons/notification.svg">
+      <div class="header-items cursor-pointer">
         <img class="profile" src="../../assets/icons/profile.svg">
+        <span class="font-[800] text-[16px]">Sandip Shakya</span>
       </div>
     </header>
     <!-- Header end  -->
