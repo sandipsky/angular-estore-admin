@@ -4,11 +4,10 @@
 @import "tailwindcss/utilities";
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
-*
-{
+* {
   margin-top: 0;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 body {
@@ -20,4 +19,15 @@ body {
   background-color: var(--bg-light);
 }
 
+.card {
+  border: 1px solid var(--stroke-color);
+  border-radius: 3.2px;
+  padding: 12px;
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 10px 0px rgba(102, 102, 102, 0.1);
+}
 
+.button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
