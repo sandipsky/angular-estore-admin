@@ -1,3 +1,33 @@
 @if (showPage == 'list') {
-<app-general-list></app-general-list>
+<app-general-list [title]="'Category'" >
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S.N</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of categoryList; track $index) {
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{item?.name}}</td>
+                <td>{{item?.status == true ? 'Active' : 'Inactive'}}</td>
+                <td></td>
+            </tr>
+            }
+            @empty {
+            <tr>
+                <td colspan="10">
+                    <div class="no-data w-100 text-center">
+                        <p>No Records Found...</p>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</app-general-list>
 }

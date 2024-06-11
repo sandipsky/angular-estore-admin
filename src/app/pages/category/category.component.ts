@@ -10,4 +10,21 @@ import { GeneralListComponent } from '../general-list/general-list.component';
 })
 export class CategoryComponent {
   showPage: string = 'list';
+
+  categoryList: any[] = [
+    {
+      id: 1,
+      name: "Clothing",
+      status: true,
+    },
+    {
+      id: 2,
+      name: "Accessories",
+      status: true,
+    },
+    {
+      id: 3,
+      name: "Headwear",
+      status: false,
+    },]
 }

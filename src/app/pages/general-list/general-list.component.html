@@ -1,49 +1,24 @@
 <div class="page-header">
-    <h1 class="font-[700] text-[24px] text-[var(--primary-color)]">Category</h1>
-    <button class="button">Add</button>
+    <h1 class="font-[700] text-[24px] text-[var(--primary-color)]">{{title}}</h1>
+    <button (click)="emitAddEvent()" class="button">Add</button>
 </div>
 
 <div class="card">
     <div class="card-header">
-        <span>All Categories</span>
+        <span>All {{title}}</span>
         <div class="flex gap-[8px]">
-            <button class="icon" title="Export (Alt + X)" accesskey="x">
+            <button (click)="emitExcelEvent()" class="icon" title="Export (Alt + X)" accesskey="x">
                 <img src="../../../assets/icons/excel.svg" alt="logo" />
             </button>
-            <button class="icon" title="Print (Ctrl + P)">
+            <button (click)="emitPDFEvent()" class="icon" title="Print (Ctrl + P)">
                 <img src="../../../assets/icons/pdf.svg" alt="logo" />
             </button>
         </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>S.N</th>
-                    <th>Category</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (item of [1]; track $index) {
-                <tr>
-                    <td>{{$index + 1}}</td>
-                    <td>Clothing</td>
-                    <td></td>
-                </tr>
-                }
-                @empty {
-                <tr>
-                    <td colspan="10">
-                        <div class="no-data w-100 text-center">
-                            <p>No Records Found...</p>
-                        </div>
-                    </td>
-                </tr>
-                }
-            </tbody>
+    <ng-content select="[card-header]"></ng-content>
 
-        </table>
+    <div class="table-responsive">
+        <ng-content></ng-content>
     </div>
 </div>
