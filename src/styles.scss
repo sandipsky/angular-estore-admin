@@ -19,15 +19,84 @@ body {
   background-color: var(--bg-light);
 }
 
+.button {
+  padding: 6px 16px;
+  border-radius: 3.2px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card {
   border: 1px solid var(--stroke-color);
   border-radius: 3.2px;
   padding: 12px;
   background-color: var(--white-color);
   box-shadow: 0px 1px 10px 0px rgba(102, 102, 102, 0.1);
+
+  .card-header {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .icon {
+      color: var(--primary-color);
+      width: 28px;
+      height: 24px;
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+  }
 }
 
-.button {
-  background-color: var(--primary-color);
-  color: var(--white-color);
+.table {
+  width: 100%;
+  border: 1px solid var(--table-border-color);
+  border-collapse: collapse;
+  border-radius: 3.2px;
+
+  thead th {
+    background-color: var(--bg-light);
+    padding: 8px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  tbody tr:hover {
+    background-color: var(--green-extra-light-color) !important;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  tbody td {
+    padding: 8px;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+
+  tfoot td {
+    padding: 8px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+
+  tbody td:last-child {
+    button {
+      width: 18px;
+      height: 18px;
+    }
+  }
 }
+
