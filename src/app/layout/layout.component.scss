@@ -1,22 +1,4 @@
-.layout-container {
-    display: flex;
-}
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    padding: 6px;
-    margin-bottom: 12px;
-
-
-    span {
-        margin-left: 44px;
-        font-size: 24px;
-        color: white;
-        font-weight: 900;
-        text-wrap: nowrap;
-    }
-}
 
 header
 {
@@ -24,6 +6,7 @@ header
     align-items: center;
     justify-content: space-between;
     padding: 12px;
+    height: 40px;
     background-color: white;
 
     .header-items {
@@ -45,8 +28,9 @@ header
 }
 
 .sidenav-container {
-    height: 100vh;
+    height: 100%;
     background-color: var(--nav-bg);
+    width: 200px;
     margin: 0;
     padding: 0;
     z-index: 5;
@@ -95,20 +79,6 @@ header
                 }
             }
 
-            .sub-menu {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-                max-height: 0px;
-                padding-left: 20px;
-                transition: all 0.5s ease;
-                overflow: hidden;
-
-                &.open {
-                    max-height: 300px;
-                    transition: all 1s ease;
-                }
-            }
         }
     }
 }

@@ -1,10 +1,10 @@
-<div class="layout-container">
+<div class="flex h-[100vh]">
   <!-- Sidebar -->
   <div class="sidenav-container" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
     <div class="sidenav-content" [style.width.px]="isOpened ? drawerExpandedWidth : drawerCollapsedWidth">
       <!-- logo -->
-      <div class="logo-container">
-        <span>E-Admin</span>
+      <div class="flex items-center p-[6px] mb-[12px]">
+        <span class="ml-[44px] text-[24px] text-white font-[900] text-nowrap">E-Admin</span>
       </div>
       <!-- logo end  -->
       <!-- nav items  -->
@@ -21,7 +21,7 @@
   <!-- Sidebar End  -->
 
   <!-- Main Content -->
-  <div class="grow">
+  <div class="grow flex flex-col">
     <!-- Header -->
     <header class="shadow-md">
       <button (click)="toggleNav()">
@@ -35,7 +35,7 @@
     <!-- Header end  -->
 
     <!-- Content -->
-    <div class="p-4">
+    <div class="grow p-4 overflow-y-auto">
       <router-outlet></router-outlet>
     </div>
   </div>

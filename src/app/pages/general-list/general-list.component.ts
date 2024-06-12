@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DocumentService } from '../../services/document.service';
 
 @Component({
   selector: 'app-general-list',
@@ -9,16 +10,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class GeneralListComponent {
   @Input() title: string = '';
-  @Output() onExcelExport: EventEmitter<void> = new EventEmitter<void>();
-  @Output() onPDFExport: EventEmitter<void> = new EventEmitter<void>();
   @Output() onAdd: EventEmitter<void> = new EventEmitter<void>();
 
-  emitExcelEvent() {
-    this.onExcelExport.emit();
+  constructor(
+    private _documentService: DocumentService
+  ) { }
+
+  exportExcel() {
+    this._documentService.exportExcelTable('export-table', this.title);
   }
 
-  emitPDFEvent() {
-    this.onPDFExport.emit();
+  exportPDF() {
+    this._documentService.exportPDFTable('export-table', this.title);
   }
 
   emitAddEvent() {

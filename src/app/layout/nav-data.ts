@@ -23,6 +23,12 @@ export const NavData = [
     icon: "../../assets/icons/category.svg",
   },
   {
+    title: "Brands",
+    link: "/brands",
+    expanded: false,
+    icon: "../../assets/icons/category.svg",
+  },
+  {
     title: "Users",
     link: "/users",
     expanded: false,

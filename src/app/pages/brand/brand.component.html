@@ -1,15 +1,15 @@
-<app-general-list [title]="'Category'">
+<app-general-list [title]="'Brand'">
     <table class="table" id="export-table">
         <thead>
             <tr>
                 <th>S.N</th>
-                <th>Category</th>
+                <th>Brand</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @for (item of categoryList; track $index) {
+            @for (item of brandList; track $index) {
             <tr>
                 <td>{{$index + 1}}</td>
                 <td>{{item?.name}}</td>

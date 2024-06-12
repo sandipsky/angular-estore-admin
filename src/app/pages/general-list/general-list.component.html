@@ -3,22 +3,20 @@
     <button (click)="emitAddEvent()" class="button">Add</button>
 </div>
 
-<div class="card">
+<div class="card mt-[12px]">
     <div class="card-header">
         <span>All {{title}}</span>
         <div class="flex gap-[8px]">
-            <button (click)="emitExcelEvent()" class="icon" title="Export (Alt + X)" accesskey="x">
+            <button (click)="exportExcel()" class="icon" title="Export (Alt + X)" accesskey="x">
                 <img src="../../../assets/icons/excel.svg" alt="logo" />
             </button>
-            <button (click)="emitPDFEvent()" class="icon" title="Print (Ctrl + P)">
+            <button (click)="exportPDF()" class="icon" title="Print (Ctrl + P)">
                 <img src="../../../assets/icons/pdf.svg" alt="logo" />
             </button>
         </div>
     </div>
 
-    <ng-content select="[card-header]"></ng-content>
 
-    <div class="table-responsive">
-        <ng-content></ng-content>
-    </div>
+    <ng-content></ng-content>
+
 </div>
