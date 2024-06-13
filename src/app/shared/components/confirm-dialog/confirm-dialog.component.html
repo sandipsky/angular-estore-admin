@@ -1,1 +1,22 @@
-<p>confirm-dialog works!</p>
+<div class="modall">
+    <div class="modall-header modall-style-cancel">
+        <h1 class="modal-title" id="modal-title">
+            Add Category
+        </h1>
+        <button mat-dialog-close class="btn-close">
+        </button>
+    </div>
+
+    <div class="modall-body">
+        Are You Sure You want to delete "{{data.title}}"?
+    </div>
+    <div class="modall-footer">
+        <button (click)="onDelete()" class="button primary danger">
+            Delete
+        </button>
+        <button mat-dialog-close class="button secondary danger">
+            Cancel
+        </button>
+
+    </div>
+</div>

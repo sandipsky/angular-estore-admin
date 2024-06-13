@@ -1,17 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { GeneralListComponent } from '../general-list/general-list.component';
-import { CategoryList } from '../../data/CategoryList';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { CategoryService } from './category.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [GeneralListComponent],
+  imports: [GeneralListComponent, AddCategoryComponent],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss'
 })
 export class CategoryComponent {
   showPage: string = 'list';
+  categoryList: any[] = []
 
-  categoryList: any[] = CategoryList;
+  @ViewChild('add', { static: true }) add!: TemplateRef<any>;
 
+  constructor(
+    private _dialog: MatDialog,
+    private _categoryService: CategoryService,
+
+  ) { }
+
+  ngOnInit() {
+    this.getAllCategory()
+  }
+
+  getAllCategory() {
+    this._categoryService.getCategoryList().subscribe(res => {
+      this.categoryList = res;
+    });
+  }
+
+  openAddDialog() {
+    this._dialog.open(AddCategoryComponent);
+  }
+
+  editCategory(category: any) {
+    this._dialog.open(AddCategoryComponent, {
+      data: category
+    });
+  }
+
+  deleteCategory(category: any) {
+    const dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { title: category.name }
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._categoryService.deleteCategory(category);
+        this.getAllCategory()
+      }
+    })
+  }
 }

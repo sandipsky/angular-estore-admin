@@ -1,0 +1,24 @@
+.form-group {
+    display: flex;
+    padding: 6px 0;
+    align-items: center;
+    gap: 24px;
+
+    div {
+        flex-grow: 1;
+    }
+}
+
+.form-control {
+    border: 1px solid var(--stroke-color);
+    border-radius: 3.2px;
+    line-height: 1.5;
+    font-size: 14px;
+    padding: 4px;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    color: #666;
+}

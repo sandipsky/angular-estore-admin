@@ -1,5 +1,7 @@
 @import "assets/scss/_colors";
+@import "assets/scss/_form";
 @import "assets/scss/_table";
+@import "assets/scss/_modal";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -24,9 +26,33 @@ body {
   padding: 6px 16px;
   border-radius: 3.2px;
   cursor: pointer;
-  background-color: var(--primary-color);
-  color: var(--white-color);
+
+
+  &.primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+    &.danger {
+      background-color: var(--danger-color);
+    }
+  }
+
+  &.secondary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+
+    &.danger {
+      color: var(--danger-color);
+      border: 1px solid var(--danger-color);
+    }
+  }
+
 }
+
+
+
+
+
 
 .page-header {
   display: flex;
@@ -98,4 +124,3 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
-

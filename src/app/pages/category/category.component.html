@@ -1,4 +1,4 @@
-<app-general-list [title]="'Category'">
+<app-general-list [title]="'Category'" (onAdd)="openAddDialog()">
     <table class="table" id="export-table">
         <thead>
             <tr>
@@ -9,15 +9,17 @@
             </tr>
         </thead>
         <tbody>
-            @for (item of categoryList; track $index) {
+            @for (category of categoryList; track $index) {
             <tr>
                 <td>{{$index + 1}}</td>
-                <td>{{item?.name}}</td>
-                <td>{{item?.status == true ? 'Active' : 'Inactive'}}</td>
+                <td>{{category?.name}}</td>
+                <td>{{category?.status == true ? 'Active' : 'Inactive'}}</td>
                 <td>
                     <div class="flex gap-[6px]">
-                        <img class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/edit.svg">
-                        <img class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/delete.svg">
+                        <img (click)="editCategory(category)" class="w-[18px] h-[18px] cursor-pointer"
+                            src="../../../assets/icons/edit.svg">
+                        <img (click)="deleteCategory(category)" class="w-[18px] h-[18px] cursor-pointer"
+                            src="../../../assets/icons/delete.svg">
                     </div>
                 </td>
             </tr>

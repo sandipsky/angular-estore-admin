@@ -1,0 +1,71 @@
+.modall {
+    border-radius: 0.5rem;
+
+    h1 {
+        font-size: 16px;
+        color: var(--primary-text-color);
+    }
+}
+
+
+.modall-header {
+    padding: 8px 12px;
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(12, 64, 140, 0.05);
+    border-bottom: 1px solid rgba(206, 212, 218, 0.5);
+
+}
+
+.modall-body {
+    padding: 16px;
+}
+
+.modall-footer {
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    background: #FAFAFA;
+    border-top: 1px solid rgba(206, 212, 218, 0.5);
+}
+
+.modall-style-cancel {
+    background-color: #f3f5f9;
+}
+
+@keyframes slideDownAnimation {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpAnimation {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.dialog-slide-down {
+    animation: slideDownAnimation 500ms ease;
+}
+
+.dialog-slide-up {
+    animation: slideUpAnimation 500ms ease;
+}
