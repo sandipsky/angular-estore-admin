@@ -3,8 +3,8 @@ import { GeneralListComponent } from '../general-list/general-list.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CategoryService } from './category.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category',
@@ -22,7 +22,7 @@ export class CategoryComponent {
   constructor(
     private _dialog: MatDialog,
     private _categoryService: CategoryService,
-
+    private _toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -53,6 +53,7 @@ export class CategoryComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this._categoryService.deleteCategory(category);
+        this._toastrService.success('Category Successfully Deleted', 'Success');
         this.getAllCategory()
       }
     })
