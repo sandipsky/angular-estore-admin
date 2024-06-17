@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [GeneralListComponent, AddCategoryComponent],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.scss'
 })
 export class CategoryComponent {
   showPage: string = 'list';

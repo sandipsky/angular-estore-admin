@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [GeneralListComponent, AddBrandComponent],
   templateUrl: './brand.component.html',
-  styleUrl: './brand.component.scss'
 })
 export class BrandComponent {
   showPage: string = 'list';

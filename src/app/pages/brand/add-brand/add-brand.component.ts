@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [MatDialogModule, NgToggleModule, FormsModule, ReactiveFormsModule],
   templateUrl: './add-brand.component.html',
-  styleUrl: './add-brand.component.scss'
 })
 export class AddBrandComponent {
 
