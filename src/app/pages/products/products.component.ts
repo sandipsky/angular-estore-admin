@@ -5,18 +5,18 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductService } from './products.service';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ToastrService } from 'ngx-toastr';
-import { ViewProductComponent } from './view-product/view-product.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [GeneralListComponent, AddProductComponent, ViewProductComponent],
+  imports: [GeneralListComponent, AddProductComponent],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
-  showPage: string = 'list';
+  isListView: boolean = true;
   productList: any[] = [];
   productDetail: any;
+  mode: any;
 
   @ViewChild('add', { static: true }) add!: TemplateRef<any>;
 
@@ -37,16 +37,24 @@ export class ProductsComponent {
   }
 
   showAddForm() {
-    this.showPage = 'form';
+    this.mode = 'Add';
+    this.isListView = false;
   }
 
   editProduct(product: any) {
+    this.mode = 'Edit';
     this.productDetail = product;
-    this.showPage = 'form';
+    this.isListView = false;
+  }
+
+  viewProduct(product: any) {
+    this.mode = 'View';
+    this.productDetail = product;
+    this.isListView = false;
   }
 
   showList() {
-    this.showPage = 'list';
+    this.isListView = true;
     this.productDetail = null;
   }
 

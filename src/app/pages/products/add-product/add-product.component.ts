@@ -13,9 +13,9 @@ import { NgToggleModule } from 'ng-toggle-button';
 })
 export class AddProductComponent {
   @Input() productData: any = null;
+  @Input() mode: any = 'Add';
   @Output() onExit: EventEmitter<void> = new EventEmitter<void>();
 
-  mode: string = 'Add'
   productForm: FormGroup;
 
   constructor(
@@ -38,7 +38,6 @@ export class AddProductComponent {
 
   ngOnInit() {
     if (this.productData != null) {
-      this.mode = 'Edit';
       this.productForm.patchValue(this.productData);
     }
   }
