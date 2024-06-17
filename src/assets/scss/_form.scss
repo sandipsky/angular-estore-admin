@@ -3,7 +3,6 @@
     padding: 6px 0;
     align-items: center;
     gap: 24px;
-
     div {
         flex-grow: 1;
     }
@@ -21,4 +20,5 @@
 label {
     font-size: 14px;
     color: #666;
+    width: 100px;
 }

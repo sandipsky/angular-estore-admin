@@ -1,4 +1,5 @@
-<app-general-list [title]="'Product'">
+@if (showPage == 'list') {
+<app-general-list [title]="'Product'" (onAdd)="showAddForm()">
     <table class="table" id="export-table">
         <thead>
             <tr>
@@ -12,19 +13,20 @@
             </tr>
         </thead>
         <tbody>
-            @for (item of productList; track $index) {
+            @for (product of productList; track $index) {
             <tr>
                 <td>{{$index + 1}}</td>
-                <td>{{item?.name}}</td>
-                <td>{{item?.category}}</td>
-                <td>{{item?.brand}}</td>
-                <td>{{item?.price}}</td>
-                <td>{{item?.status == true ? 'Active' : 'Inactive'}}</td>
+                <td>{{product?.name}}</td>
+                <td>{{product?.category}}</td>
+                <td>{{product?.brand}}</td>
+                <td>{{product?.price}}</td>
+                <td>{{product?.status == true ? 'Active' : 'Inactive'}}</td>
                 <td>
                     <div class="flex gap-[6px]">
                         <img class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/view.svg">
-                        <img class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/edit.svg">
-                        <img class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/delete.svg">
+                        <img (click)="editProduct(product)" class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/edit.svg">
+                        <img (click)="deleteProduct(product)" class="w-[18px] h-[18px] cursor-pointer"
+                            src="../../../assets/icons/delete.svg">
                     </div>
                 </td>
             </tr>
@@ -41,3 +43,10 @@
         </tbody>
     </table>
 </app-general-list>
+}
+@else if (showPage == 'form') {
+<app-add-product (onExit)="showList()" [productData]="productDetail"></app-add-product>
+}
+@else {
+<app-view-product (onExit)="showList()"></app-view-product>
+}

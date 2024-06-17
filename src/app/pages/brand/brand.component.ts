@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './brand.component.html',
 })
 export class BrandComponent {
-  showPage: string = 'list';
   brandList: any[] = []
 
   @ViewChild('add', { static: true }) add!: TemplateRef<any>;

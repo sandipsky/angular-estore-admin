@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './category.component.html',
 })
 export class CategoryComponent {
-  showPage: string = 'list';
   categoryList: any[] = []
 
   @ViewChild('add', { static: true }) add!: TemplateRef<any>;

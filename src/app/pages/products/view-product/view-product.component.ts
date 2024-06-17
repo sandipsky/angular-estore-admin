@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-view-product',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './view-product.component.scss'
 })
 export class ViewProductComponent {
+  @Output() onExit: EventEmitter<void> = new EventEmitter<void>();
 
+  exit() {
+    this.onExit.emit();
+  }
 }
