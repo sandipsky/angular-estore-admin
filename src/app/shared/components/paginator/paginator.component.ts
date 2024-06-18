@@ -64,7 +64,6 @@ export class PaginatorComponent {
   }
 
   closeDropdown() {
-    console.log(true);
     this.isOpen = false;
   }
 }

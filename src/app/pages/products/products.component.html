@@ -1,5 +1,8 @@
 @if (isListView) {
 <app-general-list [title]="'Product'" (onAdd)="showAddForm()">
+
+    <input slot="filter" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search...">
+
     <table class="table" id="export-table">
         <thead>
             <tr>
@@ -13,9 +16,9 @@
             </tr>
         </thead>
         <tbody>
-            @for (product of productList; track $index) {
+            @for (product of sortedData.slice(fromData(), toData()) | filterPipe : searchText; track $index) {
             <tr>
-                <td>{{$index + 1}}</td>
+                <td>{{$index + pageIndex() * pageSize() + 1}}</td>
                 <td>{{product?.name}}</td>
                 <td>{{product?.category}}</td>
                 <td>{{product?.brand}}</td>
@@ -46,7 +49,7 @@
     </table>
 
     <div class="flex items-center justify-end m-[10px]">
-        <app-paginator></app-paginator>
+        <app-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="10" [length]="length" (pageChange)="onPageChange($event)"></app-paginator>
     </div>
 
 </app-general-list>

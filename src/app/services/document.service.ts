@@ -21,7 +21,7 @@ export class DocumentService {
       return cells.map(cell => cell.innerText);
     });
 
-    // Remove the first and last td elements from each row in the cloned table
+    // Remove elements with particular class from each row in the cloned table
     // const rows = clonedTable.querySelectorAll('tr');
     // rows.forEach((row:any) => {
     //   const deletableCells =  row.querySelectorAll('.deletable-cell');

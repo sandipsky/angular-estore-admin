@@ -6,7 +6,8 @@
 <div class="card mt-[12px]">
     <div class="card-header">
         <span>All {{title}}</span>
-        <div class="flex gap-[8px]">
+        <div class="flex gap-[8px] items-center">
+            <ng-content select="input[slot='filter']"></ng-content>
             <button (click)="exportExcel()" class="icon" title="Export (Alt + X)" accesskey="x">
                 <img src="../../../assets/icons/excel.svg" alt="logo" />
             </button>
@@ -20,3 +21,4 @@
     <ng-content></ng-content>
 
 </div>
+

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { DocumentService } from '../../services/document.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-general-list',

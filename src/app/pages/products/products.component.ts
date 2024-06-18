@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Signal, TemplateRef, ViewChild, WritableSignal, computed, signal } from '@angular/core';
 import { GeneralListComponent } from '../general-list/general-list.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
@@ -7,43 +7,66 @@ import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/c
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sortable/sortable-header.directive';
 import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
+import { SearchPipe } from '../../shared/pipes/search.pipe/search.pipe';
+import { FormsModule } from '@angular/forms';
+import { SortService } from '../../services/sort.service';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective, PaginatorComponent],
+  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective, PaginatorComponent, SearchPipe, FormsModule],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
   isListView: boolean = true;
   productList: any[] = [];
+  sortedData: any[] = [];
   productDetail: any;
   mode: any;
+  searchText: string = '';
+
+  length: number = 0;
+  pageIndex: WritableSignal<number> = signal(0);
+  pageSize: WritableSignal<number> = signal(10);
+  fromData: Signal<number> = computed(() => this.pageIndex() * this.pageSize());
+  toData: Signal<number> = computed(() => this.fromData() + this.pageSize());
 
   @ViewChild('add', { static: true }) add!: TemplateRef<any>;
 
   constructor(
     private _dialog: MatDialog,
     private _productService: ProductService,
-    private _toastrService: ToastrService
+    private _toastrService: ToastrService,
+    private _sortService: SortService
   ) { }
 
   ngOnInit() {
-    this.getAllProduct()
+    this.getAllProduct();
+    console.log(this.fromData(), this.toData())
   }
 
   getAllProduct() {
     this._productService.getProductList().subscribe(res => {
       this.productList = res;
+      this.sortedData = this.productList;
+      this.length = this.productList.length;
     });
   }
 
-  onSort(event: SortEvent) {
 
+  onSort({ column, direction }: SortEvent) {
+    if (direction === '' || column === '') {
+      this.sortedData = this.productList;
+    }
+    else {
+      this.sortedData = this._sortService.sortList([...this.productList], column, direction);
+    }
   }
 
-  onPageChange() {
 
+  onPageChange(pageData: any) {
+    this.pageIndex.set(pageData.pageIndex);
+    this.pageSize.set(pageData.pageSize);
   }
 
   showAddForm() {
