@@ -5,11 +5,12 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductService } from './products.service';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sortable/sortable-header.directive';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [GeneralListComponent, AddProductComponent],
+  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
@@ -34,6 +35,14 @@ export class ProductsComponent {
     this._productService.getProductList().subscribe(res => {
       this.productList = res;
     });
+  }
+
+  onSort(event: SortEvent) {
+
+  }
+
+  onPageChange() {
+
   }
 
   showAddForm() {
