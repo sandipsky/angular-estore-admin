@@ -6,11 +6,12 @@ import { ProductService } from './products.service';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sortable/sortable-header.directive';
+import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective],
+  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective, PaginatorComponent],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {

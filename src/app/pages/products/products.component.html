@@ -23,7 +23,8 @@
                 <td>{{product?.status == true ? 'Active' : 'Inactive'}}</td>
                 <td>
                     <div class="flex gap-[6px]">
-                        <img (click)="viewProduct(product)" class="w-[18px] h-[18px] cursor-pointer" src="../../../assets/icons/view.svg">
+                        <img (click)="viewProduct(product)" class="w-[18px] h-[18px] cursor-pointer"
+                            src="../../../assets/icons/view.svg">
                         <img (click)="editProduct(product)" class="w-[18px] h-[18px] cursor-pointer"
                             src="../../../assets/icons/edit.svg">
                         <img (click)="deleteProduct(product)" class="w-[18px] h-[18px] cursor-pointer"
@@ -43,6 +44,11 @@
             }
         </tbody>
     </table>
+
+    <div class="flex items-center justify-end m-[10px]">
+        <app-paginator></app-paginator>
+    </div>
+
 </app-general-list>
 }
 @else {
