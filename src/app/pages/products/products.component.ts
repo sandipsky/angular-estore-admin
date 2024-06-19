@@ -1,7 +1,7 @@
 import { Component, Signal, TemplateRef, ViewChild, WritableSignal, computed, signal } from '@angular/core';
 import { GeneralListComponent } from '../general-list/general-list.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddProductComponent } from './product-info/product-info.component';
 import { ProductService } from './products.service';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { ToastrService } from 'ngx-toastr';

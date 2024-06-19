@@ -49,11 +49,12 @@
     </table>
 
     <div class="flex items-center justify-end m-[10px]">
-        <app-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="10" [length]="length" (pageChange)="onPageChange($event)"></app-paginator>
+        <app-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="10" [length]="length"
+            (pageChange)="onPageChange($event)"></app-paginator>
     </div>
 
 </app-general-list>
 }
 @else {
-<app-add-product (onExit)="showList()" [productData]="productDetail" [mode]="mode"></app-add-product>
+<app-product-info (onExit)="showList()" [productData]="productDetail" [mode]="mode"></app-product-info>
 }

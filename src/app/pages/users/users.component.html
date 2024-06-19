@@ -1,1 +1,60 @@
-<p>users works!</p>
+@if (isListView) {
+    <app-general-list [title]="'User'" (onAdd)="showAddForm()">
+    
+        <input slot="filter" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search...">
+    
+        <table class="table" id="export-table">
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th sortValue="name" (sort)="onSort($event)"><a class="sort-by"> User Name</a></th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (user of sortedData.slice(fromData(), toData()) | filterPipe : searchText; track $index) {
+                <tr>
+                    <td>{{$index + pageIndex() * pageSize() + 1}}</td>
+                    <td>{{user?.name}}</td>
+                    <td>{{user?.category}}</td>
+                    <td>{{user?.brand}}</td>
+                    <td>{{user?.price}}</td>
+                    <td>{{user?.status == true ? 'Active' : 'Inactive'}}</td>
+                    <td>
+                        <div class="flex gap-[6px]">
+                            <img (click)="viewUser(user)" class="w-[18px] h-[18px] cursor-pointer"
+                                src="../../../assets/icons/view.svg">
+                            <img (click)="editUser(user)" class="w-[18px] h-[18px] cursor-pointer"
+                                src="../../../assets/icons/edit.svg">
+                            <img (click)="deleteUser(user)" class="w-[18px] h-[18px] cursor-pointer"
+                                src="../../../assets/icons/delete.svg">
+                        </div>
+                    </td>
+                </tr>
+                }
+                @empty {
+                <tr>
+                    <td colspan="10">
+                        <div class="no-data w-100 text-center">
+                            <p>No Records Found...</p>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    
+        <div class="flex items-center justify-end m-[10px]">
+            <app-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="10" [length]="length"
+                (pageChange)="onPageChange($event)"></app-paginator>
+        </div>
+    
+    </app-general-list>
+    }
+    @else {
+    <app-user-info (onExit)="showList()" [userData]="userDetail" [mode]="mode"></app-user-info>
+    }
