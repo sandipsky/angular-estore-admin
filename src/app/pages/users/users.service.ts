@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
     providedIn: 'root'
 })
 export class UserService {
-    userList: any[] = UserList;
+    userList: any[] = UserList.filter(user => user.role !== 'customer');
 
     constructor() { }
 
@@ -15,10 +15,12 @@ export class UserService {
     }
 
     addUser(user: any) {
+        user.role = 'admin';
         this.userList.push(user);
     }
 
     updateUser(user: any) {
+        user.role = 'admin';
         let index = this.userList.findIndex(data => data.id == user.id);
         this.userList[index] = user;
     }

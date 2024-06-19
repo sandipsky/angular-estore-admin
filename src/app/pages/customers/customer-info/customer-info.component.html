@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1 class="font-[700] text-[24px] text-[var(--primary-color)]"> {{mode}} User</h1>
+    <h1 class="font-[700] text-[24px] text-[var(--primary-color)]"> {{mode}} Customer</h1>
     <div class="flex gap-[8px]">
         @if (mode != 'View') {
         <button (click)="onSave()" class="button primary">Save</button>
@@ -9,13 +9,13 @@
 </div>
 
 <div class="card mt-[12px]">
-    <form class="w-full md:w-1/2" [formGroup]="userForm">
+    <form class="w-full md:w-1/2" [formGroup]="customerForm">
 
         <div class="form-group">
             <label>Name</label>
             <div>
                 @if (mode == 'View') {
-                {{userData?.name || '-'}}
+                {{customerData?.name || '-'}}
                 }
                 @else {
                 <input formControlName="name" type="text" class="form-control" />
@@ -24,13 +24,13 @@
         </div>
 
         <div class="form-group">
-            <label>Username</label>
+            <label>Customername</label>
             <div>
                 @if (mode == 'View') {
-                {{userData?.category || '-'}}
+                {{customerData?.category || '-'}}
                 }
                 @else {
-                <input formControlName="username" type="text" class="form-control" />
+                <input formControlName="customername" type="text" class="form-control" />
                 }
             </div>
         </div>
@@ -39,7 +39,7 @@
             <label>Email</label>
             <div>
                 @if (mode == 'View') {
-                {{userData?.brand || '-'}}
+                {{customerData?.brand || '-'}}
                 }
                 @else {
                 <input formControlName="email" type="text" class="form-control" />

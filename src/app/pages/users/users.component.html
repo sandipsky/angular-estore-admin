@@ -7,11 +7,10 @@
             <thead>
                 <tr>
                     <th>S.N</th>
-                    <th sortValue="name" (sort)="onSort($event)"><a class="sort-by"> User Name</a></th>
-                    <th>Category</th>
-                    <th>Brand</th>
-                    <th>Price</th>
-                    <th>Status</th>
+                    <th sortValue="name" (sort)="onSort($event)"><a class="sort-by">Name</a></th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -20,10 +19,9 @@
                 <tr>
                     <td>{{$index + pageIndex() * pageSize() + 1}}</td>
                     <td>{{user?.name}}</td>
-                    <td>{{user?.category}}</td>
-                    <td>{{user?.brand}}</td>
-                    <td>{{user?.price}}</td>
-                    <td>{{user?.status == true ? 'Active' : 'Inactive'}}</td>
+                    <td>{{user?.username}}</td>
+                    <td>{{user?.email}}</td>
+                    <td>{{user?.role}}</td>
                     <td>
                         <div class="flex gap-[6px]">
                             <img (click)="viewUser(user)" class="w-[18px] h-[18px] cursor-pointer"

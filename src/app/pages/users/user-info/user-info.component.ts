@@ -25,19 +25,16 @@ export class AddUserComponent {
     this.userForm = this._fb.group({
       id: [],
       name: [],
-      category: [],
-      brand: [],
-      price: [],
-      quantity_in_stock: [],
-      description: [],
-      status: [false],
-      isFeatured: [false]
+      username: [],
+      email: [],
+      password: [],
     })
   }
 
   ngOnInit() {
     if (this.userData != null) {
       this.userForm.patchValue(this.userData);
+      this.userForm.get('password')?.setValue(null);
     }
   }
 
