@@ -6,7 +6,7 @@ import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/c
 import { ToastrService } from 'ngx-toastr';
 import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sortable/sortable-header.directive';
 import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
-import { SearchPipe } from '../../shared/pipes/search.pipe/search.pipe';
+import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortService } from '../../shared/services/sort.service';
 
