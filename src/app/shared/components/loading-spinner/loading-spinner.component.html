@@ -1,3 +1,8 @@
-<div *ngIf="this.loader.getLoading()" class="cssload-container">
-  <div class="cssload-speeding-wheel"></div>
+<div *ngIf="loading" class="cssload-container">
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>

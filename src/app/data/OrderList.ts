@@ -6,6 +6,7 @@ export const OrderList = [
         customer_name: "Sandip Shakya",
         address: "Kathmandu",
         total: 2100, // 2*1000 + 1*100
+        status: "Delivered",
         items: [
             {
                 id: 1,
@@ -28,6 +29,7 @@ export const OrderList = [
         customer_name: "John Doe",
         address: "New York City",
         total: 2500, // 3*500 + 1*1000
+        status: "Delivered",
         items: [
             {
                 id: 3,
@@ -50,6 +52,7 @@ export const OrderList = [
         customer_name: "Alice Smith",
         address: "Los Angeles",
         total: 1700, // 1*800 + 2*450
+        status: "Pending",
         items: [
             {
                 id: 5,
@@ -72,6 +75,7 @@ export const OrderList = [
         customer_name: "Michael Brown",
         address: "Chicago",
         total: 1400, // 1*600 + 2*400
+        status: "Pending",
         items: [
             {
                 id: 7,
@@ -94,6 +98,7 @@ export const OrderList = [
         customer_name: "Emily Johnson",
         address: "San Francisco",
         total: 800, // 1*500 + 2*150
+        status: "Pending",
         items: [
             {
                 id: 9,
@@ -116,6 +121,7 @@ export const OrderList = [
         customer_name: "David Wilson",
         address: "Houston",
         total: 2400, // 1*1200 + 2*600
+        status: "Pending",
         items: [
             {
                 id: 11,
@@ -138,6 +144,7 @@ export const OrderList = [
         customer_name: "Sophia Martinez",
         address: "Miami",
         total: 3000, // 1*2000 + 1*1000
+        status: "Pending",
         items: [
             {
                 id: 13,
@@ -160,6 +167,7 @@ export const OrderList = [
         customer_name: "Daniel Miller",
         address: "Dallas",
         total: 400, // 1*300 + 1*100
+        status: "Pending",
         items: [
             {
                 id: 15,
@@ -182,6 +190,7 @@ export const OrderList = [
         customer_name: "Emma Thompson",
         address: "London",
         total: 2500, // 1*1500 + 1*1000
+        status: "Pending",
         items: [
             {
                 id: 17,
@@ -204,6 +213,7 @@ export const OrderList = [
         customer_name: "Liam Brown",
         address: "Manchester",
         total: 3200, // 2*1500 + 1*200
+        status: "Pending",
         items: [
             {
                 id: 19,
@@ -226,6 +236,7 @@ export const OrderList = [
         customer_name: "Olivia Davis",
         address: "Paris",
         total: 700, // 1*500 + 2*100
+        status: "Pending",
         items: [
             {
                 id: 21,

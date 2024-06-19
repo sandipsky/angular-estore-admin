@@ -9,7 +9,7 @@ import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sort
 import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
 import { SearchPipe } from '../../shared/pipes/search.pipe/search.pipe';
 import { FormsModule } from '@angular/forms';
-import { SortService } from '../../services/sort.service';
+import { SortService } from '../../shared/services/sort.service';
 
 @Component({
   selector: 'app-customer',

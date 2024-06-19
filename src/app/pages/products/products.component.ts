@@ -9,7 +9,7 @@ import { SortEvent, SortableHeaderDirective } from '../../shared/directives/sort
 import { PaginatorComponent } from '../../shared/components/paginator/paginator.component';
 import { SearchPipe } from '../../shared/pipes/search.pipe/search.pipe';
 import { FormsModule } from '@angular/forms';
-import { SortService } from '../../services/sort.service';
+import { SortService } from '../../shared/services/sort.service';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +24,7 @@ export class ProductsComponent {
   productDetail: any;
   mode: any;
   searchText: string = '';
+  isLoading: boolean = true;
 
   length: number = 0;
   pageIndex: WritableSignal<number> = signal(0);
@@ -42,7 +43,9 @@ export class ProductsComponent {
 
   ngOnInit() {
     this.getAllProduct();
-    console.log(this.fromData(), this.toData())
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500)
   }
 
   getAllProduct() {

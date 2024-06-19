@@ -1,12 +1,16 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { SpinnerService } from '../../services/spinner-service/spinner.service';
+import { CommonModule } from '@angular/common';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-loading-spinner',
   templateUrl: './loading-spinner.component.html',
   styleUrls: ['./loading-spinner.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class LoadingSpinnerComponent {
-  constructor(public loader: SpinnerService) { }
+
+  @Input() loading: boolean = true;
+  constructor() { }
 }

@@ -1,5 +1,5 @@
 @if (isListView) {
-<app-general-list [title]="'Product'" (onAdd)="showAddForm()">
+<app-general-list [title]="'Product'" (onAdd)="showAddForm()" [loading]="isLoading">
 
     <input slot="filter" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search...">
 
@@ -23,7 +23,14 @@
                 <td>{{product?.category}}</td>
                 <td>{{product?.brand}}</td>
                 <td>{{product?.price}}</td>
-                <td>{{product?.status == true ? 'Active' : 'Inactive'}}</td>
+                <td>
+                    @if (product?.status == true) {
+                    <span class="status active">Active</span>
+                    }
+                    @else {
+                    <span class="status inactive">Inactive</span>
+                    }
+                </td>
                 <td>
                     <div class="flex gap-[6px]">
                         <img (click)="viewProduct(product)" class="w-[18px] h-[18px] cursor-pointer"
