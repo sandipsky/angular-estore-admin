@@ -9,11 +9,12 @@ import { PaginatorComponent } from '../../shared/components/paginator/paginator.
 import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortService } from '../../shared/services/sort.service';
+import { AmountPipe } from '../../shared/pipes/amount.pipe';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [GeneralListComponent, SortableHeaderDirective, PaginatorComponent, SearchPipe, FormsModule],
+  imports: [GeneralListComponent, SortableHeaderDirective, PaginatorComponent, SearchPipe, FormsModule, AmountPipe],
   templateUrl: './orders.component.html',
 })
 export class OrdersComponent {

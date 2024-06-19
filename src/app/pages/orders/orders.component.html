@@ -1,15 +1,13 @@
 <app-general-list [title]="'Orders'" [showAdd]="false">
 
-    <input slot="filter" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search...">
-
     <table class="table" id="export-table">
         <thead>
             <tr>
                 <th>S.N</th>
                 <th sortValue="order_number" (sort)="onSort($event)"><a class="sort-by">Order No.</a></th>
-                <th>Order Date</th>
-                <th>Customer Name</th>
-                <th>Address</th>
+                <th sortValue="date" (sort)="onSort($event)"><a class="sort-by">Order Date</a></th>
+                <th sortValue="customer_name" (sort)="onSort($event)"><a class="sort-by">Customer Name</a></th>
+                <th sortValue="address" (sort)="onSort($event)"><a class="sort-by">Address</a></th>
                 <th class="text-end">Total</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -23,7 +21,7 @@
                 <td>{{order?.date}}</td>
                 <td>{{order?.customer_name}}</td>
                 <td>{{order?.address}}</td>
-                <td class="text-end">{{order?.total}}</td>
+                <td class="text-end">{{order?.total | amount}}</td>
                 <td>
                     @if (order?.status == 'Delivered') {
                     <span class="status active">{{order?.status}}</span>

@@ -10,7 +10,7 @@
                 <th sortValue="name" (sort)="onSort($event)"><a class="sort-by"> Product Name</a></th>
                 <th>Category</th>
                 <th>Brand</th>
-                <th>Price</th>
+                <th class="text-end">Price</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -22,7 +22,7 @@
                 <td>{{product?.name}}</td>
                 <td>{{product?.category}}</td>
                 <td>{{product?.brand}}</td>
-                <td>{{product?.price}}</td>
+                <td class="text-end">{{product?.price | amount}}</td>
                 <td>
                     @if (product?.status == true) {
                     <span class="status active">Active</span>
