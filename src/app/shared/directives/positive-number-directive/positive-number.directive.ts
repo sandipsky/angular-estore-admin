@@ -1,9 +1,10 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appPositiveNumbers]'
+  selector: '[positiveNumber]',
+  standalone: true
 })
-export class PositiveNumbersDirective {
+export class PositiveNumberDirective {
 
   constructor() { }
 

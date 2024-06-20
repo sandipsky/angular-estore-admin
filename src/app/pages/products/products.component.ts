@@ -57,6 +57,8 @@ export class ProductsComponent {
     });
   }
 
+  
+
 
   onSort({ column, direction }: SortEvent) {
     if (direction === '' || column === '') {

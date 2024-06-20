@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../products.service';
 import { NgToggleModule } from 'ng-toggle-button';
+import { NgxNepaliDatepickerModule } from 'ngx-nepali-datepicker';
+import { InputRequiredDirective } from '../../../shared/directives/input-required-directive/input-required.directive';
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [NgToggleModule, FormsModule, ReactiveFormsModule],
+  imports: [NgToggleModule, FormsModule, ReactiveFormsModule, NgxNepaliDatepickerModule, InputRequiredDirective],
   templateUrl: './product-info.component.html',
 })
 export class AddProductComponent {
@@ -24,15 +26,19 @@ export class AddProductComponent {
   ) {
     this.productForm = this._fb.group({
       id: [],
-      name: [],
-      category: [],
-      brand: [],
-      price: [],
-      quantity_in_stock: [],
+      name: [, Validators.required],
+      category: [, Validators.required],
+      brand: [, Validators.required],
+      price: [, Validators.required],
+      quantity_in_stock: [, Validators.required],
       description: [],
-      status: [false],
-      isFeatured: [false]
+      status: [false, Validators.required],
+      isFeatured: [false, Validators.required]
     })
+  }
+
+  get f() {
+    return this.productForm.controls;
   }
 
   ngOnInit() {
@@ -42,6 +48,11 @@ export class AddProductComponent {
   }
 
   onSave() {
+    this.productForm.markAllAsTouched();
+    if (this.productForm.invalid) {
+      return;
+    }
+
     if (this.productForm.value.id == null) {
       this._productService.addProduct(this.productForm.value);
       this._toastrService.success('Product Successfully Added', 'Success');

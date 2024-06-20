@@ -23,6 +23,7 @@
     "@ng-select/ng-select": "^13.2.0",
     "json-server": "^1.0.0-beta.1",
     "ng-toggle-button": "^1.5.2",
+    "ngx-nepali-datepicker": "^0.1.7",
     "ngx-toastr": "^19.0.0",
     "pdfmake": "^0.2.10",
     "rxjs": "~7.8.0",

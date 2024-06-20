@@ -21,4 +21,12 @@ label {
     font-size: 14px;
     color: #666;
     width: 100px;
+
+    span {
+        color: var(--danger-color);
+    }
+}
+
+.invalid {
+    color: var(--danger-color);
 }

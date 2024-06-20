@@ -2,9 +2,10 @@ import { Directive, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: '[appFormError]'
+  selector: '[requiredInput]',
+  standalone: true
 })
-export class InputValidatorDirective {
+export class InputRequiredDirective {
 
   private subscription!: Subscription | null;
   private observer: MutationObserver;

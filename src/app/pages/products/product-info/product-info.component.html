@@ -12,63 +12,85 @@
     <form [formGroup]="productForm">
         <div class="grid md:grid-cols-2 gap-x-[24px]">
             <div class="form-group">
+                @if (mode == 'View') {
                 <label>Name</label>
                 <div>
-                    @if (mode == 'View') {
                     {{productData?.name || '-'}}
-                    }
-                    @else {
-                    <input formControlName="name" type="text" class="form-control" />
-                    }
                 </div>
+                }
+                @else {
+                <label>Name <span>*</span></label>
+                <div>
+                    <input requiredInput formControlName="name" type="text" class="form-control"
+                        [class.is-invalid]="f['name'].invalid && (f['name'].dirty ||f['name'].touched)" />
+                </div>
+                }
             </div>
 
             <div class="form-group">
+                @if (mode == 'View') {
                 <label>Category</label>
                 <div>
-                    @if (mode == 'View') {
                     {{productData?.category || '-'}}
-                    }
-                    @else {
-                    <input formControlName="category" type="text" class="form-control" />
-                    }
                 </div>
+                }
+                @else {
+                <label>Category</label>
+                <div>
+                    <input requiredInput formControlName="category" type="text" class="form-control"
+                        [class.is-invalid]="f['category'].invalid && (f['category'].dirty ||f['category'].touched)" />
+
+                </div>
+                }
             </div>
 
             <div class="form-group">
+                @if (mode == 'View') {
                 <label>Brand</label>
                 <div>
-                    @if (mode == 'View') {
                     {{productData?.brand || '-'}}
-                    }
-                    @else {
-                    <input formControlName="brand" type="text" class="form-control" />
-                    }
                 </div>
+                }
+                @else {
+                <label>Brand</label>
+                <div>
+                    <input requiredInput formControlName="brand" type="text" class="form-control"
+                        [class.is-invalid]="f['brand'].invalid && (f['brand'].dirty ||f['brand'].touched)" />
+
+                </div>
+                }
             </div>
 
             <div class="form-group">
+                @if (mode == 'View') {
                 <label>Price</label>
                 <div>
-                    @if (mode == 'View') {
-                    Rs. {{productData?.price || '-'}}
-                    }
-                    @else {
-                    <input formControlName="price" type="text" class="form-control" />
-                    }
+                    {{productData?.price || '-'}}
                 </div>
+                }
+                @else {
+                <label>Price</label>
+                <div>
+                    <input requiredInput formControlName="price" type="number" class="form-control"
+                        [class.is-invalid]="f['price'].invalid && (f['price'].dirty ||f['price'].touched)" />
+                </div>
+                }
             </div>
 
             <div class="form-group">
+                @if (mode == 'View') {
                 <label>Qty. In Stock</label>
                 <div>
-                    @if (mode == 'View') {
                     {{productData?.quantity_in_stock || '-'}}
-                    }
-                    @else {
-                    <input formControlName="quantity_in_stock" type="text" class="form-control" />
-                    }
                 </div>
+                }
+                @else {
+                <label>Qty. In Stock</label>
+                <div>
+                    <input requiredInput formControlName="quantity_in_stock" type="number" class="form-control"
+                        [class.is-invalid]="f['quantity_in_stock'].invalid && (f['quantity_in_stock'].dirty ||f['quantity_in_stock'].touched)" />
+                </div>
+                }
             </div>
         </div>
 
