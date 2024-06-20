@@ -5,11 +5,12 @@ import { ProductService } from '../products.service';
 import { NgToggleModule } from 'ng-toggle-button';
 import { NgxNepaliDatepickerModule } from 'ngx-nepali-datepicker';
 import { InputRequiredDirective } from '../../../shared/directives/input-required-directive/input-required.directive';
+import { PositiveNumberDirective } from '../../../shared/directives/positive-number-directive/positive-number.directive';
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [NgToggleModule, FormsModule, ReactiveFormsModule, NgxNepaliDatepickerModule, InputRequiredDirective],
+  imports: [NgToggleModule, FormsModule, ReactiveFormsModule, NgxNepaliDatepickerModule, InputRequiredDirective, PositiveNumberDirective],
   templateUrl: './product-info.component.html',
 })
 export class AddProductComponent {
