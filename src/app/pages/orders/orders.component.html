@@ -8,8 +8,8 @@
                 <th sortValue="date" (sort)="onSort($event)"><a class="sort-by">Order Date</a></th>
                 <th sortValue="customer_name" (sort)="onSort($event)"><a class="sort-by">Customer Name</a></th>
                 <th sortValue="address" (sort)="onSort($event)"><a class="sort-by">Address</a></th>
-                <th class="text-end">Total</th>
-                <th>Status</th>
+                <th class="text-end" sortValue="total" (sort)="onSort($event)"><a class="sort-by">Total</a></th>
+                <th sortValue="status" (sort)="onSort($event)"><a class="sort-by">Status</a></th>
                 <th>Action</th>
             </tr>
         </thead>
