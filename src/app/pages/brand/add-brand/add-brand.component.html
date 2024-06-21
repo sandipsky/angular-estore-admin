@@ -10,9 +10,10 @@
     <div class="modall-body">
         <form [formGroup]="brandForm">
             <div class="form-group">
-                <label>Name</label>
+                <label>Name <span>*</span></label>
                 <div>
-                    <input formControlName="name" type="text" class="form-control" />
+                    <input requiredInput formControlName="name" type="text" class="form-control"
+                        [class.is-invalid]="f['name'].invalid && (f['name'].dirty ||f['name'].touched)" />
                 </div>
             </div>
 

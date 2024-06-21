@@ -35,7 +35,7 @@
                 </div>
                 }
                 @else {
-                <label>Category</label>
+                <label>Category <span>*</span></label>
                 <div>
                     <input requiredInput formControlName="category" type="text" class="form-control"
                         [class.is-invalid]="f['category'].invalid && (f['category'].dirty ||f['category'].touched)" />
@@ -52,7 +52,7 @@
                 </div>
                 }
                 @else {
-                <label>Brand</label>
+                <label>Brand <span>*</span></label>
                 <div>
                     <input requiredInput formControlName="brand" type="text" class="form-control"
                         [class.is-invalid]="f['brand'].invalid && (f['brand'].dirty ||f['brand'].touched)" />
@@ -69,9 +69,9 @@
                 </div>
                 }
                 @else {
-                <label>Price</label>
+                <label>Price <span>*</span></label>
                 <div>
-                    <input requiredInput formControlName="price" type="number" class="form-control"
+                    <input requiredInput positiveNumber formControlName="price" type="number" class="form-control"
                         [class.is-invalid]="f['price'].invalid && (f['price'].dirty ||f['price'].touched)" />
                 </div>
                 }
@@ -85,9 +85,9 @@
                 </div>
                 }
                 @else {
-                <label>Qty. In Stock</label>
+                <label>Qty. In Stock <span>*</span></label>
                 <div>
-                    <input requiredInput formControlName="quantity_in_stock" type="number" class="form-control"
+                    <input requiredInput positiveNumber formControlName="quantity_in_stock" type="number" class="form-control"
                         [class.is-invalid]="f['quantity_in_stock'].invalid && (f['quantity_in_stock'].dirty ||f['quantity_in_stock'].touched)" />
                 </div>
                 }

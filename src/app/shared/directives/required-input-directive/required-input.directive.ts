@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
   selector: '[requiredInput]',
   standalone: true
 })
-export class InputRequiredDirective {
+export class RequiredInputDirective {
 
   private subscription!: Subscription | null;
   private observer: MutationObserver;

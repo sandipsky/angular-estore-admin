@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { DocumentService } from '../../shared/services/document.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner.component';
+import { ExcelUtil } from '../../shared/utils/excel.util'
+import { PdfUtil } from '../../shared/utils/pdf.util';
 
 @Component({
   selector: 'app-general-list',
@@ -15,16 +16,14 @@ export class GeneralListComponent {
   @Input() showAdd: boolean = true;
   @Output() onAdd: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(
-    private _documentService: DocumentService
-  ) { }
+  constructor() { }
 
   exportExcel() {
-    this._documentService.exportExcelTable('export-table', this.title);
+    ExcelUtil.exportExcelTable('export-table', this.title);
   }
 
   exportPDF() {
-    this._documentService.exportPDFTable('export-table', this.title);
+    PdfUtil.exportPDFTable('export-table', this.title);
   }
 
   emitAddEvent() {
