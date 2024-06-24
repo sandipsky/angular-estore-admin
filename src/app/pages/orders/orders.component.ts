@@ -10,6 +10,7 @@ import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortService } from '../../shared/services/sort.service';
 import { AmountPipe } from '../../shared/pipes/amount.pipe';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @Component({
   selector: 'app-order',
@@ -69,21 +70,13 @@ export class OrdersComponent {
     this.pageSize.set(pageData.pageSize);
   }
 
-  showAddForm() {
-    this.mode = 'Add';
-    this.isListView = false;
-  }
-
-  editOrder(order: any) {
-    this.mode = 'Edit';
-    this.orderDetail = order;
-    this.isListView = false;
-  }
-
   viewOrder(order: any) {
     this.mode = 'View';
     this.orderDetail = order;
-    this.isListView = false;
+    const dialogRef = this._dialog.open(ViewOrderComponent, {
+      width: '800px',
+      data: order
+    })
   }
 
   showList() {

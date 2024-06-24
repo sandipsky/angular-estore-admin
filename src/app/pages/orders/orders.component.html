@@ -26,8 +26,11 @@
                     @if (order?.status == 'Delivered') {
                     <span class="status active">{{order?.status}}</span>
                     }
-                    @else {
+                    @else if (order?.status == 'Pending') {
                     <span class="status pending">{{order?.status}}</span>
+                    }
+                    @else {
+                    <span class="status inactive">{{order?.status}}</span>
                     }
                 </td>
                 <td>
