@@ -1,1 +1,114 @@
-<p>dashboard works!</p>
+<!-- first row  -->
+<div class="flex px-[8px] py-[4px]">
+    <span class="font-[700] text-[24px]">Dashboard</span>
+</div>
+
+<div class="flex px-[8px] gap-[12px] mb-[12px]">
+    <div class="card dashboard-info-section w-1/3">
+        <div class="icon bg-green-300">
+            <img src="../../../assets/icons/purchase.svg" alt="">
+        </div>
+        <div>
+            <h1>Pending Orders</h1>
+            <span>{{ 11 || 0 }}</span>
+        </div>
+    </div>
+
+    <div class="card dashboard-info-section w-1/3">
+        <div class="icon bg-blue-300">
+            <img src="../../../assets/icons/products.svg" alt="">
+        </div>
+        <div>
+            <h1>Total Products</h1>
+            <span>{{ 11 || 0 }}</span>
+        </div>
+    </div>
+
+    <div class="card dashboard-info-section w-1/3">
+        <div class="icon bg-red-300">
+            <img src="../../../assets/icons/customers.svg" alt="">
+        </div>
+        <div>
+            <h1>Total Customers</h1>
+            <span>{{ 11 || 0 }}</span>
+        </div>
+    </div>
+</div>
+<!-- first row  -->
+
+<!-- second row  -->
+<div class="flex px-[8px] gap-[12px] mb-[12px]">
+    <div class="card w-2/3">
+        <apx-chart [style]="" [series]="lineChartOptions.series" [chart]="lineChartOptions.chart" [xaxis]="lineChartOptions.xaxis"
+            [dataLabels]="lineChartOptions.dataLabels" [grid]="lineChartOptions.grid" [stroke]="lineChartOptions.stroke"
+            ></apx-chart>
+    </div>
+
+    <div class="card w-1/3">
+        <apx-chart [series]="ringChartOptions.series" [chart]="ringChartOptions.chart" [labels]="ringChartOptions.labels"
+            [responsive]="ringChartOptions.responsive"></apx-chart>
+    </div>
+
+</div>
+<!-- second row  -->
+
+<!-- second row  -->
+<div class="card mx-[8px]">
+    <div class="card-header">
+        Recent Orders
+    </div>
+
+    <table class="table" id="export-table">
+        <thead>
+            <tr>
+                <th>S.N</th>
+                <th><a>Order No.</a></th>
+                <th><a>Order Date</a></th>
+                <th><a>Customer Name</a></th>
+                <th><a>Address</a></th>
+                <th><a>Total</a></th>
+                <th><a>Status</a></th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (order of orderList.slice(0, 5); track $index) {
+            <tr>
+                <td>{{$index + 1}}</td>
+                <td>{{order?.order_number}}</td>
+                <td>{{order?.date}}</td>
+                <td>{{order?.customer_name}}</td>
+                <td>{{order?.address}}</td>
+                <td class="text-end">{{order?.total | amount}}</td>
+                <td>
+                    @if (order?.status == 'Delivered') {
+                    <span class="status active">{{order?.status}}</span>
+                    }
+                    @else if (order?.status == 'Pending') {
+                    <span class="status pending">{{order?.status}}</span>
+                    }
+                    @else {
+                    <span class="status inactive">{{order?.status}}</span>
+                    }
+                </td>
+                <td>
+                    <div class="flex gap-[6px]">
+                        <img (click)="viewOrder(order)" class="w-[18px] h-[18px] cursor-pointer"
+                            src="../../../assets/icons/view.svg">
+                    </div>
+                </td>
+            </tr>
+            }
+            @empty {
+            <tr>
+                <td colspan="10">
+                    <div class="no-data w-100 text-center">
+                        <p>No Records Found...</p>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- second row  -->
