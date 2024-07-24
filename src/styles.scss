@@ -2,6 +2,7 @@
 @import "assets/scss/_form";
 @import "assets/scss/_table";
 @import "assets/scss/_modal";
+@import "assets/scss/_print";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -20,7 +21,7 @@ body {
   font-size: 12px;
   font-weight: 400;
   color: var(--primary-text-color);
-  background-color: var(--bg-light);
+  // background-color: var(--bg-light);
 }
 
 .text-end {
