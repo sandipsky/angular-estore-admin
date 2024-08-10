@@ -1,0 +1,22 @@
+@media print {
+
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: white;
+        position: relative;
+    }
+
+    header, .sidenav-container, .page-header {
+        visibility: hidden;
+    }
+
+    .card {
+        width: 100vw;
+    }
+
+    table {
+        position: absolute;
+    }
+
+}
