@@ -11,11 +11,12 @@ import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { SortService } from '../../shared/services/sort.service';
 import { AmountPipe } from '../../shared/pipes/amount.pipe';
+import { NepaliDatepickerModule } from 'np-datepicker-angular';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective, PaginatorComponent, SearchPipe, AmountPipe, FormsModule],
+  imports: [GeneralListComponent, AddProductComponent, SortableHeaderDirective, PaginatorComponent, SearchPipe, AmountPipe, FormsModule, NepaliDatepickerModule],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {

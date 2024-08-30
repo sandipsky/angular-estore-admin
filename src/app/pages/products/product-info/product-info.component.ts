@@ -3,14 +3,13 @@ import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, Validators } 
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../products.service';
 import { NgToggleModule } from 'ng-toggle-button';
-import { NgxNepaliDatepickerModule } from 'ngx-nepali-datepicker';
 import { RequiredInputDirective } from '../../../shared/directives/required-input-directive/required-input.directive';
 import { PositiveNumberDirective } from '../../../shared/directives/positive-number-directive/positive-number.directive';
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
-  imports: [NgToggleModule, FormsModule, ReactiveFormsModule, NgxNepaliDatepickerModule, RequiredInputDirective, PositiveNumberDirective],
+  imports: [NgToggleModule, FormsModule, ReactiveFormsModule, RequiredInputDirective, PositiveNumberDirective],
   templateUrl: './product-info.component.html',
 })
 export class AddProductComponent {
