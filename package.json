@@ -26,7 +26,7 @@
     "ng-apexcharts": "^1.11.0",
     "ng-toggle-button": "^1.5.2",
     "ngx-toastr": "^19.0.0",
-    "np-datepicker-angular": "^1.0.7",
+    "np-datepicker-angular": "^1.0.8",
     "pdfmake": "^0.2.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

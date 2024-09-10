@@ -1,7 +1,7 @@
 @if (isListView) {
 <app-general-list [title]="'Product'" (onAdd)="showAddForm()" [loading]="isLoading">
 
-    <ne-datepicker [calendarView]="'AD'" [language]="'en'"></ne-datepicker>
+    <ne-datepicker [calendarView]="'AD'" [language]="'en'" ></ne-datepicker>
 
     <input slot="filter" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search...">
 
